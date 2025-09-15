@@ -62,10 +62,10 @@ const AiButtons = ({ handleAiRequest, isLoading, activeAiButton }) => {
             {/* Content */}
             <div className="relative z-10 space-y-4">
               {/* Icon Section */}
-              <div className="flex items-center justify-between">
+               <div className="flex items-center justify-between">
                 <div className="p-3 bg-white/20 rounded-xl group-hover:bg-white/30 transition-colors duration-300">
                   {isLoading && activeAiButton === btn.type ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
+                    <Loader2 className="w-6 h-6 animate-spin"/>
                   ) : (
                     <div className="group-hover:animate-pulse">
                       {btn.icon}

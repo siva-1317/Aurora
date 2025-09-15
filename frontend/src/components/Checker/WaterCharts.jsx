@@ -43,7 +43,7 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
   const CustomLegend = (props) => {
     const { payload } = props;
     return (
-      <div className="flex justify-center gap-6 mt-4">
+      <div className="flex justify-center flex-wrap gap-6 mt-4">
         {payload.map((entry, index) => (
           <div key={index} className="flex items-center gap-2">
             <div 
@@ -64,22 +64,22 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
   }));
 
   return (
-    <div className="space-y-8 mt-8">
+    <div className="w-full space-y-8 mt-8">
       {/* Charts Header */}
-      <div className="text-center space-y-2">
+      <div className="flex flex-col items-center text-center space-y-3">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
           Water Quality Analytics
         </h2>
-        <p className="text-gray-600">Comprehensive analysis of your water parameters</p>
-        <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full mx-auto"></div>
+        <p className="text-gray-600 max-w-2xl">Comprehensive analysis of your water parameters</p>
+        <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full"></div>
       </div>
 
       {/* Main Charts Grid */}
-      <div className="grid gap-8 xl:grid-cols-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
         {/* Enhanced Bar Chart */}
         <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50 p-6 rounded-2xl border-2 border-blue-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl">
+            <div className="flex items-center justify-center p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl">
               <BarChart3 className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -155,7 +155,7 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
         {/* Enhanced Pie Chart */}
         <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 p-6 rounded-2xl border-2 border-purple-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl">
+            <div className="flex items-center justify-center p-2 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl">
               <PieChartIcon className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -221,11 +221,11 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
       </div>
 
       {/* Additional Analytics Section */}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Safety Score Chart */}
         <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-2xl border-2 border-emerald-200 shadow-lg">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl">
+            <div className="flex items-center justify-center p-2 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl">
               <Activity className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -277,7 +277,7 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
         {/* Quality Metrics Summary */}
         <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-2xl border-2 border-orange-200 shadow-lg">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl">
+            <div className="flex items-center justify-center p-2 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -288,7 +288,7 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {enhancedChartData.map((item, index) => (
               <div key={item.name} className="bg-white p-4 rounded-xl border border-orange-200">
                 <div className="flex items-center justify-between mb-2">
@@ -301,8 +301,8 @@ const WaterCharts = ({ chartData, qualityData, COLORS }) => {
                 <div className="text-2xl font-bold text-orange-600 mb-1">
                   {item.safetyScore.toFixed(0)}%
                 </div>
-                <div className="text-xs text-gray-500">Safety Score</div>
-                <div className="w-full h-2 bg-gray-200 rounded-full mt-2 overflow-hidden">
+                <div className="text-xs text-gray-500 mb-2">Safety Score</div>
+                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div 
                     className={`h-full transition-all duration-1000 ${
                       item.safetyScore > 80 ? 'bg-gradient-to-r from-green-400 to-green-600' :
